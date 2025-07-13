@@ -1,36 +1,40 @@
-"""" Basic Behavior
+""" Basic Behavior
 
-set number              " show line numbers
-set wrap                " wrap lines
+set relativenumber number              " show line numbers
+set nowrap                " wrap lines
 set encoding=utf-8      " set encoding to UTF-8 (default was "latin1")
-set mouse=a             " enable mouse support (might not work well on Mac OS X)
 set wildmenu            " visual autocomplete for command menu
 set lazyredraw          " redraw screen only when we need to
-set showmatch           " highlight matching parentheses / brackets [{()}]
+set showmatch           " highlight matching parentheses / brackets
 set laststatus=2        " always show statusline (even with only single window)
 set ruler               " show line and column number of the cursor on right side of statusline
 set visualbell          " blink cursor on error, instead of beeping
-set relativenumber
 
-"""" Key Bindings
+syntax enable
+
+""" Tabs
+
+set tabstop=2           " width that a <TAB> character displays as
+set expandtab           " convert <TAB> key-presses to spaces
+set shiftwidth=2        " number of spaces to use for each step of (auto)indent
+set softtabstop=2       " backspace after pressing <TAB> will remove up to this many spaces
+
+set autoindent          " copy indent from current line when starting a new line
+set smartindent         " even better autoindent (e.g. add indent after '{')
+
+set incsearch           " search as characters are entered
+set hlsearch            " highgliht matches
+
+""" Mappings
 
 imap jj <Esc>
 
-"""" Vim Appearance
+""" Plugins
 
-" put colorscheme files in ~/.vim/colors/
-
-" use filetype-based syntax highlighting, ftplugins, and indentation
-syntax enable
 filetype plugin indent on
 
+call plug#begin()
 
-"""" Tab settings
+Plug 'tpope/vim-commentary'
 
-set tabstop=4           " width that a <TAB> character displays as
-set expandtab           " convert <TAB> key-presses to spaces
-set shiftwidth=4        " number of spaces to use for each step of (auto)indent
-set softtabstop=4       " backspace after pressing <TAB> will remove up to this many spaces
-
-set autoindent          " copy indent from current line when starting a new line
-set smartindent         " even better autoindent (e.g. add indent after '{')>
+call plug#end()
