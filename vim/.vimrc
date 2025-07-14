@@ -36,5 +36,6 @@ filetype plugin indent on
 call plug#begin()
 
 Plug 'tpope/vim-commentary'
+Plug 'bfrg/vim-c-cpp-modern'
 
 call plug#end()
